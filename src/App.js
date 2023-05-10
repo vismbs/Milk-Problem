@@ -1,22 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState } from "react";
+
+const calculateDays = () => {
+  return Math.floor(Math.random() * 10000);
+};
 
 function App() {
+  const [returnDay, setReturnDay] = useState(0);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div>
+      <header className="flex justify-center items-center bg-black h-screen">
+        <div className="text-center text-white flex flex-col items-center">
+          <p className="text-3xl font-mono">WHEN WILL YOUR DAD RETURN</p>
+          <p className="py-4 px-8 my-4 rounded-2xl bg-gray-700 w-fit">
+            {returnDay} Days
+          </p>
+          <button
+            className="font-mono"
+            onClick={() => setReturnDay(calculateDays())}
+          >
+            Calculate
+          </button>
+        </div>
       </header>
     </div>
   );
